@@ -2,20 +2,21 @@ import axios from 'axios';
 import prisma from '../prisma';
 import { sign } from 'jsonwebtoken';
 import { response } from 'express';
+import bcrypt from 'bcryptjs';
 
 class AuthenticatePlayerService {
     async execute(username: string, password: string) {
 
-        let player = await prisma.player.findFirst({
-            where: {
-                username: username,
-                password: password
-            }
-        })
+        const player = await prisma.player.findFirst({
+            where: { username },
+          })
 
         if(!player) {
             response.json("Player not found")
         }
+
+        if (!player || !(await bcrypt.compare(password, player.password)))
+            response.json({ error: `Incorrect login` })
 
         const token = sign(
             {
