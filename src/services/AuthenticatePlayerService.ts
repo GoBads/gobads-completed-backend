@@ -1,4 +1,3 @@
-import axios from 'axios';
 import prisma from '../prisma';
 import { sign } from 'jsonwebtoken';
 import { response } from 'express';

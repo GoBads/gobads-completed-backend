@@ -12,7 +12,7 @@ class RegisterPlayerService {
                 }
             });
 
-        if (playerExists) {  response.json ({ error: `User already exists with that email` })}
+        if (playerExists) {  response.json ({ error: `Player already exists with that email` })}
 
         const player = await createPlayer({
             email,
@@ -21,7 +21,7 @@ class RegisterPlayerService {
         });
 
         if (!player) {   
-            response.json({ error: 'Something went wrong trying to create a new user.' })
+            response.json({ error: 'Something went wrong trying to create a new player.' })
         }
 
         return { player };
