@@ -6,13 +6,17 @@ import cors from 'cors';
 import { router } from "./routes";
 
 const app = express();
-
 var corsOptions = {
-    origin: 'https://gobads.netlify.app/',
-    optionsSuccessStatus: 200,
-  }
+  origin: 'https://gobads.netlify.app/',
+  optionsSuccessStatus: 200,
+}
 
 app.use(cors(corsOptions));
+
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'https://gobads.netlify.app/');
+    next();
+  });
 
 const serverHttp = http.createServer(app);
 
