@@ -8,8 +8,8 @@ import { router } from "./routes";
 const app = express();
 
 var corsOptions = {
-    origin: 'https://gobads.netlify.app',
-    optionsSuccessStatus: 200
+    origin: 'https://gobads.netlify.app/',
+    optionsSuccessStatus: 200,
   }
 
 app.use(cors(corsOptions));
