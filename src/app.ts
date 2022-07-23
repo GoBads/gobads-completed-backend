@@ -7,12 +7,9 @@ import { router } from "./routes";
 
 const app = express();
 
-var corsOptions = {
-  origin: 'https://gobads-frontend-smoky.vercel.app/',
-  optionsSuccessStatus: 200,
-}
-
-app.use(cors(corsOptions));
+app.use(cors({
+  origin: '*'
+}));
 
 app.use(function (req, res, next) {
   res.header("Content-Type",'application/json');
