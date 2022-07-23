@@ -7,20 +7,17 @@ import { router } from "./routes";
 
 const app = express();
 
+var corsOptions = {
+  origin: 'https://gobads-frontend-smoky.vercel.app/',
+  optionsSuccessStatus: 200,
+}
+
+app.use(cors(corsOptions));
+
 app.use(function (req, res, next) {
   res.header("Content-Type",'application/json');
   next();
 });
-
-//var corsOptions = {
-//  origin: 'https://gobads.netlify.app/',
-//  optionsSuccessStatus: 200,
-//}
-
-app.use(cors({
-  origin: "*",
-  methods: ["GET", "POST", "UPDATE"]
-}))
 
 //app.use(cors(
 //  {
