@@ -8,7 +8,7 @@ import { router } from "./routes";
 const app = express();
 
 app.use(function (req, res, next) {
-  res.contentType('application/json');
+  res.header("Content-Type",'application/json');
   next();
 });
 
