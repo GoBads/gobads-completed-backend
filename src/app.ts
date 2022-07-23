@@ -36,8 +36,8 @@ app.use(express.json());
 
 app.use(router);
 
-app.get("/", (request, response) => {
-    response.json("GoBads");
+app.get("/", (req, res) => {
+    return res.json({name: "GoBads"});
 });
 
 export { serverHttp }
