@@ -30,7 +30,7 @@ app.use(cors({
 //  }
 //))
 
-const serverHttp = http.createServer(app);
+//const serverHttp = http.createServer(app);
 
 app.use(express.json());
 
@@ -40,4 +40,4 @@ app.get("/", (req, res) => {
     return res.json({name: "GoBads"});
 });
 
-export { serverHttp }
+export { app }
