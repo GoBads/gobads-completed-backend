@@ -7,22 +7,17 @@ import { router } from "./routes";
 
 const app = express();
 
-app.use(cors({ origin: "https://gobads.netlify.app/" }));
+app.use(express.urlencoded({ extended: true }));
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*")
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested, Content-Type, Accept Authorization"
-  )
-  if (req.method === "OPTIONS") {
-    res.header(
-      "Access-Control-Allow-Methods",
-      "POST, PUT, PATCH, GET"
-    )
-    return res.status(200).json({})
-  }
-  next()
+var corsOptions = {
+  origin: 'http://localhost:3000/',
+  optionsSuccessStatus: 200
+};
+
+app.use((req: Request, res: Response, next) => {
+  res.header("Access-Control-Allow-Origin", 'https://gobads.netlify.app/')
+  this.app.use(cors());
+  next();
 })
 
 const serverHttp = http.createServer(app);
