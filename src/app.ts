@@ -7,18 +7,23 @@ import { router } from "./routes";
 
 const app = express();
 
-var corsOptions = {
-  origin: 'https://gobads.netlify.app/',
-  optionsSuccessStatus: 200,
-}
+//var corsOptions = {
+//  origin: 'https://gobads.netlify.app/',
+//  optionsSuccessStatus: 200,
+//}
 
-app.use(cors(
-  {
-    origin: ["https://gobads.netlify.app/"],
-    methods: ["GET", "POST", "UPDATE"],
-    credentials: true,
-  }
-))
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST", "UPDATE"]
+}))
+
+//app.use(cors(
+//  {
+//    origin: ["https://gobads.netlify.app/"],
+//    methods: ["GET", "POST", "UPDATE"],
+//    credentials: true,
+//  }
+//))
 
 const serverHttp = http.createServer(app);
 
