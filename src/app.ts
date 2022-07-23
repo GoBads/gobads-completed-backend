@@ -12,12 +12,13 @@ var corsOptions = {
   optionsSuccessStatus: 200,
 }
 
-app.use(cors())
-
-app.use(function (req, res, next) {
-    res.setHeader("Access-Control-Allow-Origin", 'https://gobads.netlify.app/');
-    next();
-  });
+app.use(cors(
+  {
+    origin: ["https://gobads.netlify.app/"],
+    methods: ["GET", "POST", "UPDATE"],
+    credentials: true,
+  }
+))
 
 const serverHttp = http.createServer(app);
 
