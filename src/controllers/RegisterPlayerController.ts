@@ -6,9 +6,13 @@ class RegisterPlayerController {
         
         const { email, username, password } = request.body;
 
+        const initials = username[0] + username[1];
+
+        const avatar = `https://avatars.dicebear.com/api/initials/${initials}.svg`;
+
         const service = new RegisterPlayerService();
         try {
-            const result = await service.execute(email, username, password);
+            const result = await service.execute(avatar, email, username, password);
             return response.json(result);
 
         } catch(err){

@@ -14,6 +14,8 @@ class RemovePlayerService {
                 username: true,
                 created_at: true,
                 type: true,
+                wins: true,
+                loses: true,
                 password: false
             },
         });

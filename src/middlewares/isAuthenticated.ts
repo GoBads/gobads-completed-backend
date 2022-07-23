@@ -1,6 +1,13 @@
 import { Request, Response, NextFunction } from 'express';
 import { validateToken } from '../utils';
 
+interface ITokenPayload {
+    player: {
+        username: string,
+        playerId: string
+    }
+}
+
 export async function authorize(request: Request, response: Response, next: NextFunction) {
     const authToken = request.headers.authorization;
 
@@ -14,8 +21,8 @@ export async function authorize(request: Request, response: Response, next: Next
     const [,token ] = authToken.split(" ");
     
     try{
-        await validateToken(token);
-        //request.username = player.username;
+        const decoded = await validateToken(token) as ITokenPayload;
+        request.player_id = decoded.player.playerId;
 
         return next();
 

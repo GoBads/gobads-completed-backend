@@ -1,20 +1,21 @@
 import { response } from 'express';
 import prisma from '../prisma';
-import { createPlayer } from '../utils';
+import { createPlayer } from '../utils/createPlayer';
 
 class RegisterPlayerService {
-    async execute(email: string, username: string, password: string) {
+    async execute(avatar: string, email: string, username: string, password: string) {
 
         const playerExists = await prisma.player.count({ 
             where: 
                 { 
-                    email: email 
+                    email: email
                 }
             });
 
         if (playerExists) {  response.json ({ error: `Player already exists with that email` })}
 
         const player = await createPlayer({
+            avatar,
             email,
             username,
             password,

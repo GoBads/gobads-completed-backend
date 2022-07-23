@@ -1,10 +1,10 @@
 import prisma from "../prisma";
 
 class profilePlayerService {
-    async execute(playerId: string){
+    async execute(player_id: string){
         const player = await prisma.player.findFirst({
             where: {
-                id: playerId
+                id: player_id
             },
             select: {
                 id: true,
@@ -13,6 +13,8 @@ class profilePlayerService {
                 username: true,
                 created_at: true,
                 type: true,
+                wins: true,
+                loses: true,
                 password: false
             },
         });

@@ -20,6 +20,7 @@ class AuthenticatePlayerService {
         const token = sign(
             {
                 player: {
+                    playerId: player.id,
                     username: player.username,
                 }
             },
@@ -30,7 +31,7 @@ class AuthenticatePlayerService {
             }
             )
 
-        return { token, player };
+        return { token, player, error: false };
 
     }
 }

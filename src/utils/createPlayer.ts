@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs'
 import prisma from '../prisma'
-import { ICreatePlayer } from '../types';
+import { ICreatePlayer } from '../interfaces';
 
 export const createPlayer = async (player: ICreatePlayer) => {
 
@@ -8,11 +8,12 @@ export const createPlayer = async (player: ICreatePlayer) => {
 
   const newPlayer = await prisma.player.create({
     data: {
+      avatar: player.avatar,
       email: player.email,
       password: passwordHash,
       username: player.username
     },
   })
 
-  return { id: newPlayer.id, email: player.email }
+  return { id: newPlayer.id, email: player.email, avatar: player.avatar }
 }

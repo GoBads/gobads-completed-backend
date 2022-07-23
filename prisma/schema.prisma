@@ -13,10 +13,12 @@ datasource db {
 model Player {
   id         String @id @default(uuid()) @map("_id")
   type String @default("normal")
-  avatar String @default("avatar-default")
+  avatar String
   email String @unique
   username String
   password String
+  wins Int @default(0)
+  loses Int @default(0)
   created_at DateTime @default(now())
 
   @@map("players")

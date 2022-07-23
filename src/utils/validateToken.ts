@@ -2,6 +2,7 @@ import { verify } from 'jsonwebtoken';
 
 interface ITokenPayload {
     player: {
+        playerId: string,
         username: string
     }
 }
