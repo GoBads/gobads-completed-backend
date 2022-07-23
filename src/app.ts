@@ -7,6 +7,11 @@ import { router } from "./routes";
 
 const app = express();
 
+app.use(function (req, res, next) {
+  res.contentType('application/json');
+  next();
+});
+
 //var corsOptions = {
 //  origin: 'https://gobads.netlify.app/',
 //  optionsSuccessStatus: 200,
