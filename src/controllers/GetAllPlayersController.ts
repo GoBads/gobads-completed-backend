@@ -3,6 +3,7 @@ import { GetAllPlayersService } from "../services/GetAllPlayersService";
 
 class GetAllPlayersController {
     async handle(request: Request, response: Response) {
+        request.headers["access-control-allow-origin"] = "https://gobads.netlify.app/"
 
         const service = new GetAllPlayersService();
         try {
