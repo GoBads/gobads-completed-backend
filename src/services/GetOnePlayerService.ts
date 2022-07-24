@@ -17,7 +17,8 @@ class GetOnePlayerService {
                 type: true,
                 wins: true,
                 loses: true,
-                password: false
+                password: false,
+                tournaments: true
             },
         });
         if (!player) { response.json('error') }

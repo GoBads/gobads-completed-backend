@@ -15,5 +15,9 @@ export const createPlayer = async (player: ICreatePlayer) => {
     },
   })
 
-  return { id: newPlayer.id, email: player.email, avatar: player.avatar }
+  return { 
+    id: newPlayer.id, 
+    email: newPlayer.email, 
+    avatar: newPlayer.avatar
+  }
 }

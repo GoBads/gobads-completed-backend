@@ -19,7 +19,21 @@ model Player {
   password String
   wins Int @default(0)
   loses Int @default(0)
+  tournaments Tournament?  @relation(fields: [tournamentId], references: [id])
+  tournamentId  String?
   created_at DateTime @default(now())
 
   @@map("players")
+}
+
+model Tournament {
+  id    String  @id @default(uuid())  @map("_id")
+  title String  @unique
+  description String
+  dateOf  DateTime
+  players Player[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime  @updatedAt
+
+  @@map("tournaments")
 }

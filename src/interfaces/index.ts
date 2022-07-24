@@ -21,4 +21,10 @@ export type ICreatePlayer = {
     email: string,
     username: string,
     password: string
-  }
+}
+
+export type ICreateTournament = {
+    title: string,
+    description: string,
+    dateOf: Date,
+}
