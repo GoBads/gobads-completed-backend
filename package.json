@@ -9,9 +9,6 @@
     "start": "node dist/server.js",
     "build":"prisma generate && tsc"
   },
-  "engines": {
-    "node": "14.17.0"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",

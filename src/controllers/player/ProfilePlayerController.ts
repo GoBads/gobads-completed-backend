@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { profilePlayerService } from '../services/ProfilePlayerService';
+import { ProfilePlayerService } from '../../services/player';
 
 interface RequestWithPlayerRole extends Request {
     player_id: string,
@@ -11,7 +11,7 @@ class ProfilePlayerController {
         //const { playerId } = request.params;
         const { player_id } = request;
 
-        const service = new profilePlayerService();
+        const service = new ProfilePlayerService();
 
         const result = await service.execute(player_id);
         

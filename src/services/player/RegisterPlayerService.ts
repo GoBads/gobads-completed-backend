@@ -1,6 +1,6 @@
 import { response } from 'express';
-import prisma from '../prisma';
-import { createPlayer } from '../utils/createPlayer';
+import prisma from '../../prisma';
+import { createPlayer } from '../../utils/createPlayer';
 
 class RegisterPlayerService {
     async execute(avatar: string, email: string, username: string, password: string) {

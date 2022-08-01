@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { AuthenticatePlayerService } from "../services/AuthenticatePlayerService";
+import { AuthenticatePlayerService } from "../../services/player";
 
 class AuthenticatePlayerController {
     async handle(request: Request, response: Response) {

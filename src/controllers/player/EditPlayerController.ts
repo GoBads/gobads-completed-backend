@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import { EditPlayerService } from "../services/EditPlayerService";
+import { EditPlayerService } from "../../services/player";
 
-import { INewPlayer } from '../interfaces';
+import { INewPlayer } from '../../interfaces';
 
 class EditPlayerController {
     async handle(request: Request, response: Response) {

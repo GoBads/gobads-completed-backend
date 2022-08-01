@@ -1,18 +1,23 @@
 import { Router } from 'express';
-import { AuthenticatePlayerController } from './controllers/AuthenticatePlayerController';
-import { GetAllPlayersController } from './controllers/GetAllPlayersController';
-import { RegisterPlayerController } from './controllers/RegisterPlayerController';
-import { GetOnePlayerController } from './controllers/GetOnePlayerController';
-import { ProfilePlayerController } from './controllers/ProfilePlayerController';
+import { 
+    AuthenticatePlayerController,
+    GetAllPlayersController,
+    RegisterPlayerController,
+    GetOnePlayerController,
+    ProfilePlayerController,
+    EditPlayerController,
+    RemovePlayerController
+ } from './controllers/player';
+
+import {
+    CreateTournamentController,
+    LinkToTournamentController,
+    GetAllTournamentsController,
+    GetOneTournamentController,
+    DeleteTournamentController
+} from './controllers/tournament'
 
 import { authorize } from './middlewares/isAuthenticated';
-import { EditPlayerController } from './controllers/EditPlayerController';
-import { RemovePlayerController } from './controllers/RemovePlayerController';
-import { CreateTournamentController } from './controllers/CreateTournamentController';
-import { LinkToTournamentController } from './controllers/LinkToTournamentController';
-import { GetAllTournamentsController } from './controllers/GetAllTournamentsController';
-import { GetOneTournamentController } from './controllers/GetOneTournamentController';
-import { DeleteTournamentController } from './controllers/DeleteTournamentController';
 
 const router = Router();
 

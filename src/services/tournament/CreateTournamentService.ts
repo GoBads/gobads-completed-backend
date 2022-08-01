@@ -1,6 +1,6 @@
 import { response } from 'express';
-import prisma from '../prisma';
-import { createTournament } from '../utils/createTournament';
+import prisma from '../../prisma';
+import { createTournament } from '../../utils/createTournament';
 
 class CreateTournamentService {
     async execute(title: string, description: string, dateOf: Date) {

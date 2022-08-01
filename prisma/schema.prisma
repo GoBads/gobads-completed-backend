@@ -12,7 +12,7 @@ datasource db {
 
 model Player {
   id         String @id @default(uuid()) @map("_id")
-  type String @default("normal")
+  type Role @default(USER)
   avatar String
   email String @unique
   username String
@@ -21,19 +21,36 @@ model Player {
   loses Int @default(0)
   tournaments Tournament?  @relation(fields: [tournamentId], references: [id])
   tournamentId  String?
+  achiviements Achiviement? @relation(fields: [achiviementId], references: [id])
+  achiviementId String?
   created_at DateTime @default(now())
 
   @@map("players")
+}
+
+enum Role {
+  USER
+  ADMIN
 }
 
 model Tournament {
   id    String  @id @default(uuid())  @map("_id")
   title String  @unique
   description String
-  dateOf  DateTime
+  dateOf  DateTime  @default(now())
   players Player[]
   createdAt DateTime @default(now())
   updatedAt DateTime  @updatedAt
 
   @@map("tournaments")
+}
+
+model Achiviement {
+  id    String  @id @default(uuid())  @map("_id")
+  icon  String
+  name  String
+  description String
+  players Player[]
+
+  @@map("achiviements")
 }

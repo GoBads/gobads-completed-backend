@@ -1,5 +1,5 @@
-import prisma from '../prisma';
-import { LinkOrUnlinkToTournament } from '../utils/linkOrUnlinkToTournament';
+import prisma from '../../prisma';
+import { LinkOrUnlinkToTournament } from '../../utils/linkOrUnlinkToTournament';
 
 class LinkToTournamentService {
     async execute(player_id: string, tournamentId: string, linkOrUnlink: boolean) {
