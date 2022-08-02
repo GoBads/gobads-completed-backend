@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { RemovePlayerService } from "../services/RemovePlayerService";
+import { RemovePlayerService } from "../../services/player";
 
 class RemovePlayerController {
     async handle(request: Request, response: Response) {

@@ -1,4 +1,4 @@
-import prisma from '../prisma';
+import prisma from '../../prisma';
 
 class DeleteTournamentService {
     async execute(tournamentId: string) {

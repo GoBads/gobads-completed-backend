@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { DeleteTournamentService } from "../services/DeleteTournamentService";
+import { DeleteTournamentService } from "../../services/tournament";
 
 class DeleteTournamentController {
     async handle(request: Request, response: Response) {

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { GetOneTournamentService } from "../services/GetOneTournamentService";
+import { GetOneTournamentService } from "../../services/tournament";
 
 class GetOneTournamentController {
     async handle(request: Request, response: Response) {

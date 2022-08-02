@@ -1,13 +1,10 @@
-import prisma from '../prisma';
+import prisma from '../../prisma';
 import { response } from 'express';
 
-class GetOneTournamentService {
-    async execute(tournamentId: string) {
+class GetAllTournamentsService {
+    async execute() {
 
-        const tournament = await prisma.tournament.findFirst({
-            where: {
-                id: tournamentId
-            },
+        const tournaments = await prisma.tournament.findMany({
             select: {
                 id: true,
                 title: true,
@@ -18,9 +15,9 @@ class GetOneTournamentService {
                 players: {
                     select: {
                         avatar: true,
-                        loses: true,
                         username: true,
                         wins: true,
+                        loses: true,
                         created_at: false,
                         email: false,
                         id: false,
@@ -32,10 +29,10 @@ class GetOneTournamentService {
                 }
             },
         });
-        if (!tournament) { response.json('error') }
-        return tournament
+        if (!tournaments) { response.json('error') }
+        return tournaments
 
     }
 }
 
-export { GetOneTournamentService }
+export { GetAllTournamentsService }

@@ -1,4 +1,4 @@
-import prisma from '../prisma';
+import prisma from '../../prisma';
 import { sign } from 'jsonwebtoken';
 import { response } from 'express';
 import bcrypt from 'bcryptjs';

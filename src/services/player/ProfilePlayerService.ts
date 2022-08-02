@@ -1,14 +1,10 @@
-import prisma from '../prisma';
+import prisma from "../../prisma";
 
-class EditPlayerService {
-    async execute(player_id: string, newPlayer) {
-
-        const updatedPlayer = await prisma.player.update({
+class ProfilePlayerService {
+    async execute(player_id: string){
+        const player = await prisma.player.findFirst({
             where: {
-              id: player_id,
-            },
-            data: {
-                ...newPlayer
+                id: player_id
             },
             select: {
                 id: true,
@@ -22,10 +18,9 @@ class EditPlayerService {
                 password: false
             },
         });
-      
-        return updatedPlayer;
 
+        return player;
     }
 }
 
-export { EditPlayerService }
+export { ProfilePlayerService }

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { RegisterPlayerService } from "../services/RegisterPlayerService";
+import { RegisterPlayerService } from "../../services/player";
 
 class RegisterPlayerController {
     async handle(request: Request, response: Response) {
