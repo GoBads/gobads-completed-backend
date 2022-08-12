@@ -6,7 +6,8 @@ import {
     GetOnePlayerController,
     ProfilePlayerController,
     EditPlayerController,
-    RemovePlayerController
+    RemovePlayerController,
+    AddPhotoController
  } from './controllers/player';
 
 import {
@@ -32,6 +33,7 @@ router.get("/profile", authorize, new ProfilePlayerController().handle);
 router.post("/authenticate", new AuthenticatePlayerController().handle);
 router.post("/register", new RegisterPlayerController().handle);
 router.put("/profile/edit", authorize, new EditPlayerController().handle);
+router.put("/profile/photo", authorize, new AddPhotoController().handle);
 router.delete("/player/remove/:playerId", authorize, new RemovePlayerController().handle);
 
 // Tournament Routes

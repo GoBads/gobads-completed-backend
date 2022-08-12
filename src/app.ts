@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from 'express';
 import http from 'http';
 import cors from 'cors';
+import { resolve } from 'path';
 
 import { router } from "./routes";
 
@@ -14,22 +15,15 @@ app.use(function (req, res, next) {
   next();
 });
 
-//app.use(cors(
-//  {
-//    origin: ["https://gobads.netlify.app/"],
-//    methods: ["GET", "POST", "UPDATE"],
-//    credentials: true,
-//  }
-//))
-
-//const serverHttp = http.createServer(app);
-
+// Middlewares
 app.use(express.json());
+app.use(express.static(resolve(__dirname, '..', 'uploads')));
 
+// Route
 app.use(router);
 
 app.get("/", (req, res) => {
-    return res.json({name: "GoBads"});
+  return res.json({name: "GoBads"});
 });
 
 export { app }

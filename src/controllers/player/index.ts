@@ -5,6 +5,8 @@ import { GetOnePlayerController } from "./GetOnePlayerController";
 import { ProfilePlayerController } from "./ProfilePlayerController";
 import { RegisterPlayerController } from "./RegisterPlayerController";
 import { RemovePlayerController } from "./RemovePlayerController";
+import { AddPhotoController } from "./AddPhotoController";
+
 
 export {
     AuthenticatePlayerController,
@@ -13,5 +15,6 @@ export {
     GetOnePlayerController,
     ProfilePlayerController,
     RegisterPlayerController,
-    RemovePlayerController
+    RemovePlayerController,
+    AddPhotoController
 }

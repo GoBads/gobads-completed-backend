@@ -24,7 +24,7 @@ class AuthenticatePlayerService {
                     username: player.username,
                 }
             },
-            process.env.JWT_SECRET,
+            `${process.env.JWT_SECRET}`,
             {
                 subject: player.id,
                 expiresIn: '1d'
