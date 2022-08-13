@@ -34,3 +34,9 @@ export type ICreateAchievement = {
     name: string,
     description: string,
 }
+
+export type INewAchievement = {
+    icon?: string,
+    name?: string,
+    description?: string,
+}

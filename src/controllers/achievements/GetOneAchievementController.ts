@@ -5,7 +5,7 @@ class GetOneAchievementController {
   async handle(request: Request, response: Response) {
     const achievementId = request.params.achievementId
 
-    const service = new GetOneAchievementService
+    const service = new GetOneAchievementService();
     
     try {
       const achievement = await service.execute(achievementId)

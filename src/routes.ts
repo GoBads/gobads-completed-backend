@@ -3,7 +3,8 @@ import { Router } from 'express';
 import {
     CreateAchievementController,
     GetAllAchievementsController,
-    GetOneAchievementController
+    GetOneAchievementController,
+    EditAchievementController
 } from './controllers/achievements'
 
 import { 
@@ -54,5 +55,7 @@ router.delete("/tournament/delete/:tournamentId", authorize, new DeleteTournamen
 router.get("/achievement/all", new GetAllAchievementsController().handle);
 router.get("/achievement/:achievementId", new GetOneAchievementController().handle);
 router.post("/achievement/create", new CreateAchievementController().handle);
+router.put("/achievement/:achievementId", new EditAchievementController().handle);
+
 
 export { router }
