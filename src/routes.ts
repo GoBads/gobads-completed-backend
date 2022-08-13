@@ -1,4 +1,9 @@
 import { Router } from 'express';
+
+import {
+    CreateAchievementController
+} from './controllers/achievements'
+
 import { 
     AuthenticatePlayerController,
     GetAllPlayersController,
@@ -7,8 +12,8 @@ import {
     ProfilePlayerController,
     EditPlayerController,
     RemovePlayerController,
-    AddPhotoController
- } from './controllers/player';
+    AddPhotoController,
+} from './controllers/player';
 
 import {
     CreateTournamentController,
@@ -42,5 +47,9 @@ router.get("/tournament/:tournamentId", authorize, new GetOneTournamentControlle
 router.post("/tournament/create", authorize, new CreateTournamentController().handle);
 router.put("/tournament/link", authorize, new LinkToTournamentController().handle);
 router.delete("/tournament/delete/:tournamentId", authorize, new DeleteTournamentController().handle);
+
+// Achievements
+router.post("/achievement/create", new CreateAchievementController().handle);
+
 
 export { router }

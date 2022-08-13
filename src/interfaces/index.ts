@@ -28,3 +28,9 @@ export type ICreateTournament = {
     description: string,
     dateOf: Date,
 }
+
+export type ICreateAchievement = {
+    icon: string,
+    name: string,
+    description: string,
+}
