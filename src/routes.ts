@@ -4,7 +4,8 @@ import {
     CreateAchievementController,
     GetAllAchievementsController,
     GetOneAchievementController,
-    EditAchievementController
+    EditAchievementController,
+    DeleteAchievementController
 } from './controllers/achievements'
 
 import { 
@@ -56,6 +57,6 @@ router.get("/achievement/all", new GetAllAchievementsController().handle);
 router.get("/achievement/:achievementId", new GetOneAchievementController().handle);
 router.post("/achievement/create", new CreateAchievementController().handle);
 router.put("/achievement/:achievementId", new EditAchievementController().handle);
-
+router.delete("/achievement/delete/:achievementId", new DeleteAchievementController().handle);
 
 export { router }
